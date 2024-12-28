@@ -1,0 +1,96 @@
+{
+  "appName": "Spring Boot",
+  "relatedAppNames": "Quarkus, Micronaut",
+  "description": "Spring Boot is a framework for building Java-based applications with minimal configuration.",
+  "logoPath": "https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg",
+  "prerequisites": [
+    {
+      "label": "Java",
+      "description": "https://www.oracle.com/java/",
+      "href": "https://www.oracle.com/java/"
+    },
+    {
+      "label": "Maven",
+      "description": "https://maven.apache.org/",
+      "href": "https://maven.apache.org/"
+    },
+    {
+      "label": "Gradle",
+      "description": "https://gradle.org/",
+      "href": "https://gradle.org/"
+    }
+  ],
+  "commandTemplate": [
+    "curl https://start.spring.io/starter.zip -d dependencies=${fields.get('dependencies')} -d packageName=${fields.get('packageName')} -d name=${fields.get('appName')} -o ${fields.get('appName')}.zip",
+    "unzip ${fields.get('appName')}.zip && cd ${fields.get('appName')} && ${fields.get('buildTool')} build"
+  ],
+  "fields": {
+    "appName": {
+      "label": "App Name",
+      "placeholder": "MySpringBootApp",
+      "description": "The name of the application.",
+      "value": "MySpringBootApp",
+      "required": true
+    },
+    "packageName": {
+      "label": "Package Name",
+      "placeholder": "com.example",
+      "description": "The package name, typically in reverse domain format.",
+      "value": "com.example",
+      "required": true
+    },
+    "dependencies": {
+      "type": "text",
+      "label": "Dependencies",
+      "description": "Comma-separated list of dependencies, e.g., web, jpa, security.",
+      "value": "web,jpa",
+      "required": true
+    },
+    "buildTool": {
+      "type": "dropdown",
+      "label": "Build Tool",
+      "value": "maven",
+      "options": [
+        { "label": "Maven", "value": "maven" },
+        { "label": "Gradle", "value": "gradle" }
+      ]
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "Install Spring Boot CLI",
+      "description": "Click here to install the Spring Boot CLI globally",
+      "command": "sdk install springboot"
+    },
+    {
+      "label": "Create Spring Boot App",
+      "description": "Click here to create a Spring Boot app using Spring Initializr",
+      "command": "curl https://start.spring.io/starter.zip -d dependencies=${fields.get('dependencies')} -d packageName=${fields.get('packageName')} -d name=${fields.get('appName')} -o ${fields.get('appName')}.zip"
+    },
+    {
+      "label": "Check Spring Boot Version",
+      "description": "Click here to check the installed Spring Boot version",
+      "command": "spring --version"
+    },
+    {
+      "label": "Spring Boot Help",
+      "description": "Click here to know more Spring Boot CLI configurations",
+      "command": "spring help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://spring.io/projects/spring-boot"
+    },
+    {
+      "label": "Documentation",
+      "href": "https://docs.spring.io/spring-boot/docs/current/reference/html/"
+    },
+    {
+      "label": "GitHub Repository",
+      "href": "https://github.com/spring-projects/spring-boot"
+    }
+  ],
+  "tags": ["framework", "java", "spring", "backend", "web"]
+}

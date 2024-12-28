@@ -1,0 +1,132 @@
+{
+    "appName": "Flutter",
+    "relatedAppNames": "React Native, Xamarin, Ionic",
+    "description": "Flutter is an open-source UI software development kit created by Google to build natively compiled applications for mobile, web, and desktop from a single codebase.",
+    "logoPath": "https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png",
+    "prerequisites": [
+      {
+        "label": "Flutter SDK",
+        "description": "https://flutter.dev/docs/get-started/install",
+        "href": "https://flutter.dev/docs/get-started/install"
+      },
+      {
+        "label": "Dart SDK",
+        "description": "https://dart.dev/get-dart",
+        "href": "https://dart.dev/get-dart"
+      },
+      {
+        "label": "Android Studio",
+        "description": "https://developer.android.com/studio",
+        "href": "https://developer.android.com/studio"
+      }
+    ],
+    "commandTemplate": [
+      "flutter create ${fields.get('appId')} --org ${fields.get('org')} --description ${fields.get('description')} ${fields.getExcept('openInVsCode')};",
+      "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+    ],
+    "fields": {
+      "appId": {
+        "label": "App Id",
+        "placeholder": "com.example.myflutterapp",
+        "description": "Must be a valid reverse domain name, e.g., com.example.myflutterapp.",
+        "value": "myflutterapp",
+        "required": true,
+        "pattern": "^[a-z]+(-[a-z]+)*$",
+        "errors": {
+          "required": "App Id is Required.",
+          "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+        }
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "A new Flutter project.",
+        "value": "A new Flutter project.",
+        "required": true
+      },
+      "org": {
+        "label": "Organization",
+        "placeholder": "com.example",
+        "description": "Your organization's reverse domain name.",
+        "value": "com.example",
+        "required": true
+      },
+      "platforms": {
+        "type": "dropdown",
+        "label": "Platforms",
+        "value": "--platforms android",
+        "options": [
+          { "label": "iOS", "value": "--platforms ios" },
+          { "label": "Android", "value": "--platforms android" },
+          { "label": "Web", "value": "--platforms web" },
+          { "label": "Windows", "value": "--platforms windows" },
+          { "label": "macOS", "value": "--platforms macos" },
+          { "label": "Linux", "value": "--platforms linux" }
+        ]
+      },
+      "framework": {
+        "type": "dropdown",
+        "label": "Framework",
+        "prompt": true,
+        "value": "--template app",
+        "options": [
+          { "label": "Flutter Application", "value": "--template app" },
+          { "label": "Flutter Package", "value": "--template package" },
+          { "label": "Flutter Plugin", "value": "--template plugin" }
+        ]
+      },
+      "language": {
+        "type": "dropdown",
+        "label": "Language",
+        "prompt": true,
+        "value": "--android-language kotlin --ios-language swift",
+        "options": [
+          { "label": "Kotlin (Android)", "value": "--android-language kotlin" },
+          { "label": "Java (Android)", "value": "--android-language java" },
+          { "label": "Swift (iOS)", "value": "--ios-language swift" },
+          { "label": "Objective-C (iOS)", "value": "--ios-language objc" }
+        ]
+      },
+      "openInVsCode": {
+        "type": "checkbox",
+        "label": "Open In VSCode?"
+      }
+    },
+    "additionalCommands": [
+      {
+        "label": "Install Flutter SDK",
+        "description": "Click here to install the Flutter SDK.",
+        "command": "https://flutter.dev/docs/get-started/install"
+      },
+      {
+        "label": "Create Flutter Project",
+        "description": "Click here to create a new Flutter project using CLI prompts.",
+        "command": "flutter create ${fields.get('appId')}"
+      },
+      {
+        "label": "Check Flutter Version",
+        "description": "Click here to check Flutter version.",
+        "command": "flutter --version"
+      },
+      {
+        "label": "Flutter Doctor",
+        "description": "Click here to check your Flutter installation.",
+        "command": "flutter doctor"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Flutter Home Page",
+        "href": "https://flutter.dev"
+      },
+      {
+        "label": "Documentation",
+        "href": "https://flutter.dev/docs"
+      },
+      {
+        "label": "GitHub Repository",
+        "href": "https://github.com/flutter/flutter"
+      }
+    ],
+    "tags": ["framework", "mobile", "web", "desktop", "flutter", "dart"]
+  }
+  

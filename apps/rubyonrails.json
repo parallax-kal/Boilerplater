@@ -1,0 +1,57 @@
+{
+  "appName": "Ruby on Rails",
+  "description": "Ruby on Rails is a server-side web application framework written in Ruby under the MIT License.",
+  "logoPath": "https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg",
+  "prerequisites": [
+    {
+      "label": "Ruby",
+      "description": "https://www.ruby-lang.org/en/documentation/installation/",
+      "href": "https://www.ruby-lang.org/en/documentation/installation/"
+    }
+  ],
+  "commandTemplate": [
+    "rails new ${fields.appId} ${fields.apiMode ? '--api' : ''} ${fields.database ? `--database=${fields.database}` : ''};",
+    "cd ${fields.appId};",
+    "${fields.useVSCode ? `code ${fields.appId}` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "The app ID must start with a letter and can include letters, numbers, underscores, and hyphens.",
+      "value": "my_rails_app",
+      "required": true
+    },
+    "apiMode": {
+      "type": "checkbox",
+      "label": "API Mode?",
+      "value": false
+    },
+    "database": {
+      "type": "dropdown",
+      "label": "Database",
+      "value": "sqlite3",
+      "options": [
+        { "label": "SQLite3", "value": "sqlite3" },
+        { "label": "PostgreSQL", "value": "postgresql" },
+        { "label": "MySQL", "value": "mysql" }
+      ]
+    },
+    "useVSCode": {
+      "type": "checkbox",
+      "label": "Open in VSCode?",
+      "value": true
+    }
+  },
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://rubyonrails.org/"
+    },
+    {
+      "label": "Documentation",
+      "href": "https://guides.rubyonrails.org/"
+    }
+  ],
+  "tags": ["framework", "ruby", "rails", "web"]
+}

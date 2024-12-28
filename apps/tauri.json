@@ -1,0 +1,119 @@
+{
+  "appName": "Tauri",
+  "relatedAppNames": "Electron, NeutralinoJs",
+  "description": "Tauri is a framework for building desktop applications with web technologies.",
+  "logoPath": "https://avatars.githubusercontent.com/u/54536011?s=200&v=4 ",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "Rust",
+      "description": "https://www.rust-lang.org/",
+      "href": "https://www.rust-lang.org/"
+    }
+  ],
+  "commandTemplate": [
+    "npm create tauri-app@latest ${fields.getExcept('openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "my-tauri-app",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "useTailwind": {
+      "type": "radio",
+      "label": "Use Tailwind CSS?",
+      "value": "--",
+      "options": [
+        { "label": "Yes", "value": "-- --tailwindcss" },
+        { "label": "No", "value": "--" }
+      ]
+    },
+    "framework": {
+      "type": "dropdown",
+      "label": "Framework",
+      "prompt": true,
+      "value": "--template react",
+      "options": [
+        { "label": "Svelte", "value": "--template svelte" },
+        { "label": "React", "value": "--template react" },
+        { "label": "Vue", "value": "--template vue" },
+        { "label": "Vanilla", "value": "--template vanilla" }
+      ]
+    },
+    "language": {
+      "type": "dropdown",
+      "label": "Language",
+      "prompt": true,
+      "value": "--typescript",
+      "options": [
+        { "label": "Typescript", "value": "--typescript" },
+        { "label": "Javascript", "value": "--javascript" }
+      ]
+    },
+    "packageManager": {
+      "type": "dropdown",
+      "label": "Package Manager",
+      "value": "--package-manager npm",
+      "options": [
+        { "label": "npm", "value": "--package-manager npm" },
+        { "label": "pnpm", "value": "--package-manager pnpm" },
+        { "label": "yarn", "value": "--package-manager yarn" },
+        { "label": "bun", "value": "--package-manager bun" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "Install Tauri CLI",
+      "description": "Click here to install the Tauri CLI globally",
+      "command": "cargo install tauri-cli"
+    },
+    {
+      "label": "Create Tauri App",
+      "description": "Click here to create a Tauri app using CLI prompts",
+      "command": "npm create tauri-app@latest"
+    },
+    {
+      "label": "Check CLI Version",
+      "description": "Click here to check CLI version",
+      "command": "tauri --version"
+    },
+    {
+      "label": "CLI Help",
+      "description": "Click here to know more CLI configurations",
+      "command": "tauri --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://tauri.app/"
+    },
+    {
+      "label": "Documentation",
+      "href": "https://tauri.app/v1/guides/getting-started/"
+    },
+    {
+      "label": "GitHub Repository",
+      "href": "https://github.com/tauri-apps/tauri"
+    }
+  ],
+  "tags": ["framework", "desktop", "tauri", "rust", "web", "webapp"]
+}

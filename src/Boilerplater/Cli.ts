@@ -64,7 +64,6 @@ export default class Cli {
           cli.dispose();
         }),
         cli.onDidTriggerButton((item) => {
-          // resolve(quickPick.activeItems[0].label); // resolve selected app name
           vscode.commands.executeCommand(Commands.BOILERPLATER_CLI);
           resolve(undefined);
           isResolved = true;

@@ -1,0 +1,172 @@
+{
+  "appName": "Laravel",
+  "relatedAppNames": "Symfony, CodeIgniter, Yii",
+  "description": "Laravel is a PHP framework for building modern, elegant web applications with an emphasis on simplicity and readability.",
+  "logoPath": "https://laravel.com/img/logomark.min.svg",
+  "prerequisites": [
+    {
+      "label": "PHP",
+      "description": "https://www.php.net/",
+      "href": "https://www.php.net/"
+    },
+    {
+      "label": "Composer",
+      "description": "https://getcomposer.org/",
+      "href": "https://getcomposer.org/"
+    },
+    {
+      "label": "Laravel Installer",
+      "description": "https://laravel.com/docs/9.x/installation#installing-laravel",
+      "href": "https://laravel.com/docs/9.x/installation#installing-laravel"
+    }
+  ],
+  "commandTemplate": [
+    "laravel new ${fields.get('appId')} ${fields.getExcept('openInVsCode')}",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Name",
+      "placeholder": "my-app",
+      "description": "The name of your Laravel application.",
+      "value": "my-app",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "forceInstallation": {
+      "type": "radio",
+      "label": "Force Installation",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--force" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "developmentVersion": {
+      "type": "radio",
+      "label": "Development Version",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--dev" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "installJetstream": {
+      "type": "radio",
+      "label": "Install Jetstream",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--jet" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "installAuthentication": {
+      "type": "radio",
+      "label": "Install Authentication",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--auth" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "starterTemplate": {
+      "type": "radio",
+      "label": "Starter Template",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--starter" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "skipTests": {
+      "type": "radio",
+      "label": "Skip PHPUnit Tests",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--skip-tests" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "disableAnsi": {
+      "type": "radio",
+      "label": "Disable ANSI Output",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--no-ansi" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "quietOutput": {
+      "type": "radio",
+      "label": "Quiet Output",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--quiet" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "useDocker": {
+      "type": "radio",
+      "label": "Use Docker",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--docker" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "noInteraction": {
+      "type": "radio",
+      "label": "No Interaction",
+      "value": "",
+      "options": [
+        { "label": "Yes", "value": "--no-interaction" },
+        { "label": "No", "value": "" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "Install Laravel Installer",
+      "description": "Click here to install the Laravel installer globally",
+      "command": "composer global require laravel/installer"
+    },
+    {
+      "label": "Create New Laravel App",
+      "description": "Click here to create a new Laravel app with selected flags",
+      "command": "laravel new ${fields.get('appName')} ${fields.get('flags')}"
+    },
+    {
+      "label": "Check Laravel Version",
+      "description": "Click here to check the installed Laravel version",
+      "command": "laravel --version"
+    },
+    {
+      "label": "Laravel Help",
+      "description": "Click here to know more about Laravel CLI commands",
+      "command": "laravel help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://laravel.com/"
+    },
+    {
+      "label": "Documentation",
+      "href": "https://laravel.com/docs"
+    },
+    {
+      "label": "GitHub Repository",
+      "href": "https://github.com/laravel/laravel"
+    }
+  ],
+  "tags": ["framework", "php", "web", "backend", "laravel"]
+}
