@@ -53,7 +53,12 @@
     "React",
     "Vite",
     "VS Code Extension",
-    "Flutter"
+    "Flutter",
+    "Tauri",
+    "Spring Boot",
+    "Laravel",
+    "Ruby",
+    "Ruby on Rails"
   ],
   "activationEvents": [
     "onStartupFinished"
